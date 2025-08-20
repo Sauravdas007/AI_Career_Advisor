@@ -135,3 +135,8 @@ Open an issue or contact the repo maintainer.
 ---
 
 Enjoy your AI-powered career journey!
+
+** Constrains **
+currently job search api has 200 calls free of cost.
+and the general chat api has 1000 calls free of cost.
+these are due to use of third party Agentic apis.
