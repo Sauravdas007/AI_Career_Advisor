@@ -1,5 +1,7 @@
 # 🎓 AI Career Advisor — Single Agent
 
+Before reading Try out our live link of prototype: https://aicareeradvisorfrontend-lpqoeddqgwttzjahdnhuzk.streamlit.app/
+
 A unified AI assistant that:
 - Chats with users (OpenRouter + DeepSeek)
 - Suggests **courses** (LLM-generated structured JSON)
