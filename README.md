@@ -17,8 +17,8 @@ A unified AI assistant that:
 ### 2. **Clone the Repository**
 
 ```bash
-git clone https://github.com/your-username/ai-career-advisor.git
-cd ai-career-advisor
+git clone https://github.com/Sauravdas007/AI_Career_Advisor.git
+cd AI_Career_Advisor
 ```
 
 ---
