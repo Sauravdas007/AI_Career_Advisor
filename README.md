@@ -21,6 +21,10 @@ A unified AI-powered assistant that helps users with:
 
 ## ⚙️ Setup Instructions
 
+### API keys generation:
+- from openrouter generate your own api key from deepseek model
+- from Scrapingdog website generate your own api key for job search 
+
 ### 1. Requirements
 - Python 3.10 or newer
 
