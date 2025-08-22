@@ -1,142 +1,126 @@
 # 🎓 AI Career Advisor — Single Agent
 
-Before reading Try out our live link of prototype: https://aicareeradvisorfrontend-lpqoeddqgwttzjahdnhuzk.streamlit.app/
+Try out the live prototype: [AI Career Advisor Frontend](https://aicareeradvisorfrontend-lpqoeddqgwttzjahdnhuzk.streamlit.app/)
 
-A unified AI assistant that:
-- Chats with users (OpenRouter + DeepSeek)
-- Suggests **courses** (LLM-generated structured JSON)
-- Finds **internships** via **ScrapingDog LinkedIn Jobs API**
-
----
-
-## 🚀 Setup Instructions
-
-### 1. **Requirements**
-- Python 3.10 or newer recommended
+A unified AI-powered assistant that helps users with:
+- 💬 Career guidance conversations powered by **LLMs (OpenRouter + DeepSeek)**
+- 📚 Personalized **course recommendations** (AI-generated structured JSON)
+- 🎯 Real-time **internship & job listings** via **ScrapingDog LinkedIn Jobs API**
 
 ---
 
-### 2. **Clone the Repository**
+## 🚀 Tech Stack
 
+- **Backend:** FastAPI (Python), Uvicorn
+- **Frontend:** Streamlit (custom Gothic UI)
+- **APIs:** OpenRouter (DeepSeek), ScrapingDog (LinkedIn Jobs)
+- **Deployment:** Backend on Render, Frontend on Streamlit Cloud
+- **Other Tools:** dotenv, requests, humanize
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Requirements
+- Python 3.10 or newer
+
+### 2. Clone the Repository
 ```bash
 git clone https://github.com/Sauravdas007/AI_Career_Advisor.git
 cd AI_Career_Advisor
 ```
 
----
-
-### 3. **Create & Fill `.env` File**
-
-Create a `.env` file in your project root with content similar to:
-
-```
-BACKEND_URL=http://localhost:8000
-OPENROUTER_API_KEY=your_openrouter_key
-SCRAPINGDOG_API_KEY=your_scrapingdog_key
-```
-Replace keys with your actual credentials.
-
----
-
-### 4. **Install Dependencies**
-
-It’s best to use a virtual environment:
-
+### 3. Create & Activate Virtual Environment
 ```bash
 python -m venv venv
-source venv/bin/activate      # On Windows: venv\Scriptsctivate
+source venv/bin/activate      # On Windows: venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+```bash
 pip install -r requirements.txt
 ```
 
----
-
-### 5. **Start the Backend (FastAPI)**
-
+### 5. Start Backend (FastAPI)
 ```bash
 cd backend
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
-This will launch the FastAPI backend at `http://localhost:8000`.
+Backend runs at [http://localhost:8000](http://localhost:8000).
 
----
-
-### 6. **Start the Frontend (Streamlit UI)**
-
+### 6. Start Frontend (Streamlit)
 ```bash
 cd frontend
 streamlit run streamlit_app.py
 ```
-Access the interactive app at [http://localhost:8501](http://localhost:8501).
+Frontend runs at [http://localhost:8501](http://localhost:8501).
 
 ---
 
-## ☁️ **Deploy for Free**
+## 🌐 Deployment
 
-### **Backend:** [Render.com](https://render.com)
-- Connect your backend repo, deploy as a Web Service (see the earlier instructions).
+- **Backend:** [Render](https://render.com) → deployed as a FastAPI web service  
+- **Frontend:** [Streamlit Cloud](https://streamlit.io/cloud) → deployed `streamlit_app.py`  
 
-### **Frontend:** [Streamlit Community Cloud](https://streamlit.io/cloud)
-- Connect your frontend repo, deploy `streamlit_app.py`.
-
-Set the `BACKEND_URL` in frontend `.env` or secrets to your backend’s public URL after deployment.
+The frontend connects directly to the backend hosted on Render.
 
 ---
 
-## 🌐 **Project Structure**
+## 📂 Project Structure
 
 ```
-my_career_advisor/
+AI_Career_Advisor/
 ├── frontend/
-│   ├── __init__.py
-│   ├── config.toml
 │   ├── streamlit_app.py
-│   ├── requirements.txt
+│   └── requirements.txt
 ├── backend/
-│   ├── __init__.py
-│   ├── agent.py
 │   ├── main.py
+│   ├── agent.py
 │   ├── requirements.txt
 │   └── services/
-│       ├── __init__.py
 │       ├── chat_service.py
 │       └── internship_service.py
-
+└── README.md
 ```
 
 ---
 
-## 💡 **Features**
+## ✨ Features
 
-- Custom Gothic dark theme with animated search bar
-- Rich chat interface with [OpenRouter (DeepSeek)]
-- Real-time internship and course search
-
----
-
-## 🔒 **Environment Variables**
-
-- `BACKEND_URL` — Where the backend API is hosted
-- `OPENROUTER_API_KEY` — For LLM chat
-- `SCRAPINGDOG_API_KEY` — For LinkedIn Jobs scraping
-
-Use **Streamlit Cloud “Secrets”** or `.env` for deployment environment variables.
+- Gothic dark-themed UI for modern experience  
+- Interactive chat with **LLM-driven responses**  
+- Real-time **LinkedIn internships & jobs scraping**  
+- AI-generated **course suggestions** for upskilling  
+- Chat history, pill-style badges, and relative time formatting  
 
 ---
 
-## 👨‍💻 **Contributing**
+## 🔄 Technical Workflow
 
-Pull requests welcome! Please open issues first to discuss proposed changes.
+1. **User enters query** in frontend (Streamlit).  
+2. **Backend (FastAPI)** routes request to an **agent handler**.  
+3. Depending on intent:  
+   - Queries **OpenRouter LLM** → chat or course recommendations  
+   - Calls **ScrapingDog API** → LinkedIn internships/jobs  
+4. **Results returned** to frontend in structured JSON.  
+5. **Streamlit UI renders** chat, courses, or internships dynamically.  
 
 ---
 
-**Questions or Deployment Help?**  
-Open an issue or contact the repo maintainer.
+## ⚠️ Constraints
+
+- **ScrapingDog API** → 200 free job search calls  
+- **OpenRouter API** → 1000 free LLM calls  
+
+Both are subject to free-tier limits of third-party APIs.
 
 ---
 
-Enjoy your AI-powered career journey!
+## 👨‍💻 Contributing
 
-** Constrains **
-currently job search api has 200 calls free of cost.
-and the general chat api has 1000 calls free of cost.
-these are due to use of third party Agentic apis.
+Pull requests welcome! Please open an issue first to discuss changes.
+
+---
+
+Enjoy your AI-powered career journey! 🚀
+
